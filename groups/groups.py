@@ -33,3 +33,12 @@ class CyclicGroup:
 
     def operation(self, a, b):
         return (a + b) % self.order
+
+    def __call__(self, value):
+        return Element(self, value)
+
+    def __str__(self):
+        return f"C{self.order}"
+
+    def __repr__(self):
+        return f"{type(self).__name__}({self.value})"
