@@ -7,18 +7,18 @@ class Element:
         self.group = group
         self.value = value
 
-        def __mul__(self, other):
-            return Element(
-                self.group,
-                self.group.opertation(self.value, other.value)
-            )
+    def __mul__(self, other):
+        return Element(
+            self.group,
+            self.group.opertation(self.value, other.value)
+        )
 
-        def __str__(self):
-            return f"{self.value}_{self.group}"
+    def __str__(self):
+        return f"{self.value}_{self.group}"
 
-        def __repr__(self):
-            return f"{type(self).__name__}({self.group}, {self.value})"
-        # rather than "return f'Element({self.group}, {self.value}')"
+    def __repr__(self):
+        return f"{type(self).__name__}({self.group}, {self.value})"
+    # rather than "return f'Element({self.group}, {self.value}')"
 
 
 class CyclicGroup:
