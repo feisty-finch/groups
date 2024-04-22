@@ -2,6 +2,10 @@ from numbers import Integral
 import numpy as np
 
 
+class GroupsValueError(ValueError):
+    pass
+
+
 class Element:
     def __init__(self, group, value):
         group._validate(value)
@@ -39,8 +43,8 @@ class CyclicGroup(Group):
     def _validate(self, value):
         if not (isinstance(value, Integral) and
                 0 <= value < self.n):
-            raise ValueError("Element value must be an integer "
-                             f"in the range [0, {self.n}).]")
+            raise GroupsValueError("Element value must be an integer "
+                                   f"in the range [0, {self.n}).]")
 
     def operation(self, a, b):
         return (a + b) % self.n
@@ -55,10 +59,10 @@ class GeneralLinearGroup(Group):
     # class attribute name is accessed to self.symbol
 
     def _validate(self, value):
-        if not (isinstance(value, np.ndarray) and
+        if not (isinstance(value, np.narray) and
                 value.shape == (self.n, self.n)):
-            raise ValueError("Element value must be an array "
-                             f"with shape ({self.n}, {self.n}).]")
+            raise GroupsValueError("Element value must be an array "
+                                   f"with shape ({self.n}, {self.n}).]")
 
     def operation(self, a, b):
         return a @ b
