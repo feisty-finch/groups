@@ -59,7 +59,7 @@ class GeneralLinearGroup(Group):
     # class attribute name is accessed to self.symbol
 
     def _validate(self, value):
-        if not (isinstance(value, np.narray) and
+        if not (isinstance(value, np.ndarray) and
                 value.shape == (self.n, self.n)):
             raise GroupsValueError("Element value must be an array "
                                    f"with shape ({self.n}, {self.n}).]")
