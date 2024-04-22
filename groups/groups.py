@@ -10,7 +10,7 @@ class Element:
     def __mul__(self, other):
         return Element(
             self.group,
-            self.group.opertation(self.value, other.value)
+            self.group.operation(self.value, other.value)
         )
 
     def __str__(self):
