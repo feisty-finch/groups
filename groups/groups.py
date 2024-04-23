@@ -44,9 +44,10 @@ class CyclicGroup(Group):
         if not (isinstance(value, Integral) and
                 0 <= value < self.n):
             raise GroupsValueError("Element value must be an integer "
-                                   f"in the range [0, {self.n}).]")
+                                   f"in the range [0, {self.n}).")
 
     def operation(self, a, b):
+        """Perform the group operation on two values."""
         return (a + b) % self.n
 
     def __str__(self):
@@ -65,6 +66,7 @@ class GeneralLinearGroup(Group):
                                    f"with shape ({self.n}, {self.n}).]")
 
     def operation(self, a, b):
+        """Perform the group operation on two values."""
         return a @ b
 
     def __str__(self):
